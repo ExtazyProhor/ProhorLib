@@ -4,31 +4,11 @@ import java.util.Iterator;
 
 public class Range {
     public static Iterable<Integer> range(int to) {
-        return () -> new Iterator<>() {
-            int cursor = 0;
-
-            public boolean hasNext() {
-                return cursor < to;
-            }
-
-            public Integer next() {
-                return cursor++;
-            }
-        };
+        return range(0, to);
     }
 
     public static Iterable<Integer> range(int from, int to) {
-        return () -> new Iterator<>() {
-            int cursor = from;
-
-            public boolean hasNext() {
-                return cursor < to;
-            }
-
-            public Integer next() {
-                return cursor++;
-            }
-        };
+        return range(from, to, 1);
     }
 
     public static Iterable<Integer> range(int from, int to, int step) {
